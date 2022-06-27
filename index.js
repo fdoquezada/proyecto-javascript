@@ -1,21 +1,6 @@
 //comandos para instalar nodejs 
-/*1. Instalar NodeJS
 
-sudo apt-get update
-sudo apt-get install node
-sudo apt-get install nodejs
-
-2. Verificar la versión de nodejs e ingresar a la consola
-
-nodejs -v
-nodejs 
-3. Instalar NPM (Node Package Manager)
-
-sudo apt-get install npm
-
-4. Instalar express para todos los usuarios del sistema
-
-sudo npm install -g express */
+  
 /* 
 var http = require('http');
 
@@ -30,19 +15,25 @@ console.log('Server running at 8081');
 
 
 
-const express = require('express')
-const app = express()
+const express = require('express');
+const path = require('path');
+const app = express();
+
 
 app.get('/', function (req, res) {
-  res.send('hola fernando quezada')
+  //res.send('hola fernando quezada')
+  res.sendFile(path.join(__dirname + "/index.html"));
 
 })
 
 app.get('/contacto', function (req, res) {
-  res.send('contactame en mi red social')
+  //res.send('contactame en mi red social');
+  res.sendFile(path.join(__dirname + "/index.html"));
 
 })
-app.listen(3000)
+app.listen(3000,() => {
+  console.log('servert init in port', 3000 );
+});
 
 
 
